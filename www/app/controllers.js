@@ -2,7 +2,27 @@
 
 var myApp = angular.module('myApp.controllers', ['fhcloud']);
 
-myApp.controller('MainCtrl', function ($rootScope, $scope, $ionicLoading, $ionicModal, $timeout, fhcloud) {
+myApp.controller('MainCtrl', function ($rootScope, $scope, $ionicLoading, $ionicModal, $ionicPopup, $timeout, fhcloud) {
+
+
+// An alert dialog
+ $scope.showAlertThankYou = function() {
+   var alertPopup = $ionicPopup.alert({
+     title: '<h4>CONGRATULATIONS</h4>',
+     cssClass: 'showAlertThankYou',
+     template: '<img src="img/medals-1622902_640_narrow.png" style="width: 230px; align: center;"/>',
+     buttons: [
+       /**{
+         text: 'OK',
+         type: 'button-assertive'
+      } */
+     ]
+   });
+
+   alertPopup.then(function(res) {
+     console.log('Thank you for not eating my delicious ice cream cone');
+   });
+ };
 
   $scope.showSucces = function () {
     $ionicLoading.show({
@@ -40,7 +60,8 @@ myApp.controller('MainCtrl', function ($rootScope, $scope, $ionicLoading, $ionic
     tariff: 'Standard',
     premium: '',
     messages: [],
-    isCalculated: false
+    isCalculated: false,
+    calculationCount: 0,
   }
 
   $scope.recalculateAccidentPricing = function () {
@@ -95,6 +116,14 @@ myApp.controller('MainCtrl', function ($rootScope, $scope, $ionicLoading, $ionic
 
         // Clear loading
         $scope.hide();
+
+        // Show CONGRATULATIONS on a random basis
+        $scope.accidentPricing.calculationCount++;
+        if ($scope.accidentPricing.calculationCount > 5) {
+          if (parseInt((Math.random()*10).toString().split('.')[0]) > 5) {
+            $scope.showAlertThankYou();
+          }
+        }
       }
     }, function (msg, err) {
       $scope.noticeMessage = "$fh.cloud failed. Error: " + JSON.stringify(err);
