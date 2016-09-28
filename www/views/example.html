@@ -87,7 +87,7 @@
 
       <label class="item item-input item-select">
         <div class="input-label">Duration (days)</div>
-        <select ng-model="accidentPricing.duration" ng-click="recalculateAccidentPricing()">
+        <select ng-model="accidentPricing.duration" ng-change="recalculateAccidentPricing()">
           <option>3</option>
           <option>5</option>
           <option>7</option>
