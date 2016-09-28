@@ -17,13 +17,13 @@
 
         <div class="item range range-positive">
           Age: 
-          <input type="range" name="volume" min="18" max="70" value="18" ng-model="accidentPricing.age" ng-change="recalculateAccidentPricing()">
+          <input type="range" name="volume" min="18" max="70" value="18" ng-model="accidentPricing.age" ng-click="recalculateAccidentPricing()">
           {{accidentPricing.age}}
         </div>
         
         <div class="item range range-positive">
           Duration: 
-          <input type="range" name="volume" min="3" max="14" value="5" ng-model="accidentPricing.duration" ng-change="recalculateAccidentPricing()">
+          <input type="range" name="volume" min="3" max="14" value="5" ng-model="accidentPricing.duration" ng-click="recalculateAccidentPricing()">
           {{accidentPricing.duration}}
         </div>
 
