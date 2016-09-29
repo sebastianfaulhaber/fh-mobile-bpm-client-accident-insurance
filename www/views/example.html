@@ -50,15 +50,12 @@
 
 
         <div class="item item-icon-left item-button-right" ng-show="accidentPricing.premium" style="margin-top: 8px;">
-          <i class="icon ion-asterisk"></i>&nbsp;<b>Your special offer:</b> {{accidentPricing.premium}} €
+          <i class="icon ion-asterisk"></i>&nbsp;<b>Your special offer:</b> <div style="text-align:right;">{{accidentPricing.premium}} €</div>
         </div>
 
         <button type="button" class="button button-block button-stable" ng-click="calculateAccidentPricing()">
           Calculate
         </button>
-        <!--<button type="button" class="button button-block button-stable" ng-click="showAlertThankYou()">
-          Test
-        </button>-->
       </div>      
     </form>
   </ion-content>
